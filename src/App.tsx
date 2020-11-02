@@ -76,11 +76,11 @@ class App extends Component<{}, {
             email: '?@howhostel.com',
             phones: [
                 {
-                    number: '+7(916)769-92-47',
+                    number: '+79167699247',
                     name: 'Валерия'
                 },
                 {
-                    number: '+7(916)278-07-72',
+                    number: '+79162780772',
                     name: 'Анна'
                 },
             ],

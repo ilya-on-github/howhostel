@@ -18,7 +18,8 @@ class Contacts extends Component<{ phones: Phone[], email: string }> {
                                 {this.props.phones.map((p, i) => {
                                     return (
                                         <li key={i}>
-                                            <span className="number">{p.number}</span>
+                                            <a className="number text-link color-accent"
+                                               href={"tel:" + p.number}>{p.number}</a>
                                             <span className="name">{p.name}</span>
                                         </li>
                                     );
