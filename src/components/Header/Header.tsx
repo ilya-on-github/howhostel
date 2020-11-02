@@ -21,6 +21,7 @@ class Header extends Component {
         ];
 
         const currentPageIndex = 1;
+        const currentPage = pages[currentPageIndex];
 
         return (
             <header className="Header color-main">
@@ -45,13 +46,11 @@ class Header extends Component {
                                 <h3 className="page-num">{currentPageIndex}</h3>
                                 <button className="page-nav next"/>
                             </div>
-                            <h1 className="page-title page-title-current">Создай успешный отель или хостел</h1>
+                            <h1 className="page-title page-title-current">{currentPage.title}</h1>
                         </div>
                         <div className="wrapper">
-                            <h3 className="page-subtitle">Создаём и помогаем</h3>
-                            <div className="page-description text-body">
-                                10 лет опыта создания и управления малым гостиничным бизнесом
-                            </div>
+                            <h3 className="page-subtitle">{currentPage.subtitle}</h3>
+                            <div className="page-description text-body">{currentPage.description}</div>
                             <button className="page-action button-accent">Написать нам</button>
                         </div>
                     </div>
