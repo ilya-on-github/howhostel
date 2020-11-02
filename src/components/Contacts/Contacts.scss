@@ -1,0 +1,57 @@
+.Contacts {
+  height: 35rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+
+  .card {
+    height: 23.5rem;
+    position: relative;
+
+    .layer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+
+      .background {
+        flex: 1 0 auto;
+        opacity: 0.8;
+      }
+
+      .content {
+        flex: 1 0 auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+
+        text-align: left;
+        padding: 0 1.5rem;
+
+        h1 {
+          margin: 2.75rem 0 1rem 0;
+        }
+
+        ul {
+
+        }
+
+        button {
+          margin: 1.5rem 0;
+        }
+      }
+    }
+  }
+}

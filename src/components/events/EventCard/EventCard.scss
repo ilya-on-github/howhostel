@@ -1,0 +1,54 @@
+.EventCard {
+  padding: 1.25rem;
+  background: white;
+}
+
+.EventCard {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.event-info {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+
+  .event-type {
+    flex: 0 1 auto;
+  }
+
+  .event-paid {
+    flex: 1 1 auto;
+    margin-left: 1rem;
+  }
+
+  .event-title {
+    flex: 0 0 100%;
+  }
+
+  .event-date {
+    flex: 0 0 100%;
+  }
+
+  .event-link {
+    flex: 0 0 100%;
+    margin: 1.5rem 0 1rem 0;
+
+    a {
+
+    }
+
+    .icon {
+      margin-left: 0.375rem;
+    }
+  }
+}
+
+.event-image {
+  display: block;
+  height: 14.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

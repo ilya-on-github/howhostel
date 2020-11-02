@@ -1,0 +1,124 @@
+.Header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  position: relative;
+
+  .layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .background {
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+
+    div {
+      flex: 1 1 auto;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+
+    .nav-bar {
+
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+
+      ul {
+        display: none;
+      }
+    }
+
+    .pages {
+      flex: 1 1 auto;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .wrapper {
+        padding: 0 0.5rem;
+      }
+
+      .page-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .page-num {
+          margin: 0;
+        }
+
+        button {
+          width: 2rem;
+          height: 2rem;
+
+          background-color: transparent;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-image: url("../../assets/icons/triangle-left.svg");
+        }
+
+        .prev {
+        }
+
+        .next {
+          transform: rotate(180deg);
+        }
+      }
+
+      .page-title {
+        margin: 2rem 0 0 0;
+      }
+
+      .page-action {
+        margin: 1.25rem 0;
+      }
+    }
+  }
+}
+
+// Default (mobile)
+.Header {
+  // displays only the last picture in 'background' section
+  .background {
+    div {
+      display: none;
+    }
+
+    div:last-child {
+      display: block;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}

@@ -1,0 +1,29 @@
+.Team {
+
+  .photo-list {
+  }
+
+  .member-photo {
+    height: 16.75rem;
+    width: 100%;
+  }
+
+  .description-list {
+    text-align: left;
+
+    .member-name {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+
+    li {
+      padding: 1rem 1rem 2rem 1rem;
+
+      .member-description {
+        height: 15rem;
+        overflow: hidden;
+        text-wrap: normal;
+        white-space: normal;
+      }
+    }
+  }
+}
