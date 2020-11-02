@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {TeamMember} from "../../models/team-member";
+import {TeamMember} from "../../models/team-member.model";
 import './Team.scss';
-import SliderSwitch from "../SliderSwitch/SiderSwitch";
+import CarouselSwitch from "../CarouselSwitch/CarouselSwitch";
 
 class Team extends Component<{ members: TeamMember[], currentIndex: number }> {
     render() {
@@ -20,7 +20,7 @@ class Team extends Component<{ members: TeamMember[], currentIndex: number }> {
                         );
                     })}
                 </ul>
-                <SliderSwitch length={members.length} currentIndex={currentIndex}/>
+                <CarouselSwitch length={members.length} currentIndex={currentIndex} indexChanged={(i) => console.log(i)}/>
                 <ul className="description-list">
                     {members.map((m, i) => {
                         return (

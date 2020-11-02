@@ -1,25 +1,33 @@
 import React, {Component} from "react";
-import {Comment} from "../../models/comment";
-import SliderSwitch from "../SliderSwitch/SiderSwitch";
+import {Comment} from "../../models/comment.model";
+import CarouselSwitch from "../CarouselSwitch/CarouselSwitch";
 import './Comments.scss';
 
-class Comments extends Component<{ comments: Comment[] }> {
+class Comments extends Component<{ comments: Comment[], currentIndex: number, indexChanged: (i: number) => void }> {
     render() {
         const comments = this.props.comments;
+        const indexChangedHandler = (i: number) => {
+            this.props.indexChanged(i);
+        }
 
         return (
             <div className="Comments">
                 <ul className="comment-list">
                     {comments.map((c, i) => {
-                        return (
-                            <li key={i} className="background-main-inverted">
-                                <p className="comment-text text-body">{c.text}</p>
-                                <a className="comment-name text-link color-accent" href={c.profileUrl}>{c.name}</a>
-                            </li>
-                        )
+                        if (i === this.props.currentIndex) {
+                            return (
+                                <li key={i} className="background-main-inverted">
+                                    <p className="comment-text text-body">{c.text}</p>
+                                    <a className="comment-name text-link color-accent" href={c.profileUrl}>{c.name}</a>
+                                </li>
+                            );
+                        }
+
+                        return '';
                     })}
                 </ul>
-                <SliderSwitch length={comments.length} currentIndex={0}/>
+                <CarouselSwitch length={comments.length} currentIndex={this.props.currentIndex}
+                                indexChanged={indexChangedHandler}/>
             </div>
         );
     }
