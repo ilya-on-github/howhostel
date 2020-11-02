@@ -12,7 +12,7 @@ class ServiceCard extends Component<{ service: Service }> {
                 <div className="service-content">
                     <h2 className="service-title">{service.title}</h2>
                     <p className="service-description text-body">{service.description}</p>
-                    <a className="service-link text-link color-accent" href="#">Заказать</a>
+                    <a className="service-link text-link color-accent" href="http://howhostel.com">Заказать</a>
                 </div>
             </div>
         );
