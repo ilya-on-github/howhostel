@@ -1,24 +1,30 @@
 .Team {
 
-  .photo-list {
+  .swiper-container {
+    .swiper-pagination {
+      bottom: 23.5rem;
+    }
   }
 
-  .member-photo {
-    height: 16.75rem;
-    width: 100%;
-  }
-
-  .description-list {
-    text-align: left;
-
-    .member-name {
-      margin: 0.5rem 0 0.5rem 0;
+  .slide-content {
+    .photo {
+      height: 16.75rem;
+      width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
-    li {
-      padding: 1rem 1rem 2rem 1rem;
+    .info {
+      text-align: left;
+      padding: 0 1rem;
+      margin: 3.5rem 0 0 0;
 
-      .member-description {
+      .name {
+        margin: 0.5rem 0 0.5rem 0;
+      }
+
+      .description {
         height: 15rem;
         overflow: hidden;
         text-wrap: normal;

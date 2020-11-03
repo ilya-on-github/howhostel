@@ -1,13 +1,17 @@
 .Comments {
   background: #F1F1ED;
+  padding: 1rem 1rem 0 1rem;
 
-  .comment-list {
-    padding: 1.25rem 1rem 0 1rem;
+  .swiper-pagination {
+    bottom: 0.75rem;
+  }
 
-    li {
+  .swiper-slide {
+    .slide-content {
       height: 12.25rem;
       text-align: left;
       padding: 1rem;
+      margin-bottom: 2.5rem;
 
       display: flex;
       flex-direction: column;

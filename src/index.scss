@@ -175,6 +175,17 @@ button {
   color: $colorMainInverted;
 }
 
+// external components customization
+// swiper
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+
+  .swiper-pagination-bullet-active {
+    background-color: $colorAccent;
+  }
+}
+
 // 64 - h1
 // 40 - h2
 // 24 - h3

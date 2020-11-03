@@ -6,6 +6,7 @@ import {Study} from "./models/study.model";
 import {Service} from "./models/service.model";
 import {TeamMember} from "./models/team-member.model";
 import {Comment} from "./models/comment.model";
+import {Phone} from "./models/phone.model";
 
 import EventList from "./components/events/EventList/EventList";
 import StudyList from "./components/study/StudyList/StudyList";
@@ -13,6 +14,7 @@ import ServiceList from "./components/services/ServiceList/ServiceList";
 import Header from "./components/Header/Header";
 import Team from "./components/Team/Team";
 import Comments from "./components/Comments/Comments";
+import Contacts from "./components/Contacts/Contacts";
 
 import breakfasts from './assets/images/breakfasts.png';
 import conferences from './assets/images/conferences.png';
@@ -24,13 +26,11 @@ import keyboard from './assets/images/keyboard.png';
 import photo from './assets/images/photo.png';
 import auditory from './assets/images/auditory.png';
 import team1 from './assets/images/team/burtseva.png';
-import Contacts from "./components/Contacts/Contacts";
-import {Phone} from "./models/phone.model";
+import team2 from './assets/images/team/levchenko.png';
 
 class App extends Component<{}, {
     comments: {
         items: Comment[],
-        currentIndex: number,
     },
     contacts: {
         email: string,
@@ -48,7 +48,6 @@ class App extends Component<{}, {
     },
     team: {
         members: TeamMember[],
-        currentIndex: number,
     },
 }> {
     state = {
@@ -194,26 +193,19 @@ class App extends Component<{}, {
                     name: 'Анна Бурцева',
                     role: 'Основатель',
                     description: 'Задача организации, в особенности же начало повседневной работы по формированию позиции обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации.',
-                }
+                },
+                {
+                    imageUrl: team2,
+                    name: 'Валерия Левченко',
+                    role: 'Эксперт',
+                    description: 'Хочу кофе',
+                },
             ],
-            currentIndex: 0
         },
     };
 
     render() {
         const state = this.state;
-
-        const commentsIndexChangedHandler: (i: number) => void = i => {
-            this.setState((prevState, props) => {
-                return {
-                    ...prevState,
-                    comments: {
-                        ...prevState.comments,
-                        currentIndex: i,
-                    }
-                }
-            })
-        };
 
         return (
             <div className="App">
@@ -221,9 +213,8 @@ class App extends Component<{}, {
                 <EventList events={state.events.items}/>
                 <StudyList items={state.study.items}/>
                 <ServiceList items={state.services.items}/>
-                <Team members={state.team.members} currentIndex={state.team.currentIndex}/>
-                <Comments comments={state.comments.items} currentIndex={state.comments.currentIndex}
-                          indexChanged={commentsIndexChangedHandler}/>
+                <Team members={state.team.members}/>
+                <Comments comments={state.comments.items}/>
                 <Contacts phones={state.contacts.phones} email={state.contacts.email}/>
             </div>
         );

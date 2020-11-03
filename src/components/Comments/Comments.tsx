@@ -1,33 +1,38 @@
 import React, {Component} from "react";
 import {Comment} from "../../models/comment.model";
-import CarouselSwitch from "../CarouselSwitch/CarouselSwitch";
+import SwiperCore, {Virtual, Pagination} from 'swiper';
+import {Swiper, SwiperSlide} from "swiper/react";
+import 'swiper/swiper.scss';
+import 'swiper/components/pagination/pagination.scss';
 import './Comments.scss';
 
-class Comments extends Component<{ comments: Comment[], currentIndex: number, indexChanged: (i: number) => void }> {
+// install modules
+SwiperCore.use([Virtual, Pagination]);
+
+class Comments extends Component<{ comments: Comment[] }> {
     render() {
         const comments = this.props.comments;
-        const indexChangedHandler = (i: number) => {
-            this.props.indexChanged(i);
-        }
 
         return (
             <div className="Comments">
-                <ul className="comment-list">
+                <Swiper tag="div" wrapperTag="ul"
+                        virtual
+                        allowTouchMove
+                        pagination={{clickable: true}}
+                        slidesPerView={1}
+                        spaceBetween={50}>
+
                     {comments.map((c, i) => {
-                        if (i === this.props.currentIndex) {
-                            return (
-                                <li key={i} className="background-main-inverted">
+                        return (
+                            <SwiperSlide tag="li" key={i} virtualIndex={i}>
+                                <div className="slide-content background-main-inverted">
                                     <p className="comment-text text-body">{c.text}</p>
                                     <a className="comment-name text-link color-accent" href={c.profileUrl}>{c.name}</a>
-                                </li>
-                            );
-                        }
-
-                        return '';
+                                </div>
+                            </SwiperSlide>
+                        );
                     })}
-                </ul>
-                <CarouselSwitch length={comments.length} currentIndex={this.props.currentIndex}
-                                indexChanged={indexChangedHandler}/>
+                </Swiper>
             </div>
         );
     }
