@@ -37,19 +37,13 @@ function Header() {
 
     const pages = [
         {
-            title: 'Организация конференций',
-        },
-        {
             title: 'Создай успешный отель или хостел',
             subtitle: 'Создаем и помогаем',
             description: '10 лет опыта создания и управления малого гостиничного бизнеса',
         },
-        {
-            title: 'Программы обучения',
-        },
     ];
 
-    const currentPageIndex = 1;
+    const currentPageIndex = 0;
     const currentPage = pages[currentPageIndex];
 
     const links = [
@@ -97,11 +91,14 @@ function Header() {
                 </Hidden>
                 <div className="pages">
                     <div className="wrapper">
-                        <div className="page-nav">
-                            <button className="page-nav prev"/>
-                            <h3 className="page-num">{currentPageIndex}</h3>
-                            <button className="page-nav next"/>
-                        </div>
+                        {pages.length > 1
+                            ? <div className="page-nav">
+                                <button className="page-nav prev"/>
+                                <h3 className="page-num">{currentPageIndex + 1}</h3>
+                                <button className="page-nav next"/>
+                            </div>
+                            : ''
+                        }
                         <h1 className="page-title page-title-current">{currentPage.title}</h1>
                     </div>
                     <div className="wrapper">
