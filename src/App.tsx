@@ -72,7 +72,7 @@ class App extends Component<{}, {
             currentIndex: 0
         },
         contacts: {
-            email: '?@howhostel.com',
+            email: 'ask@howhostel.com',
             phones: [
                 {
                     number: '+79167699247',
