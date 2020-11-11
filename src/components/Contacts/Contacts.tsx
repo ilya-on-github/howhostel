@@ -26,7 +26,10 @@ class Contacts extends Component<{ phones: Phone[], email: string }> {
                                 })}
                             </ul>
                             <ul className="text-body">
-                                <li>{this.props.email}</li>
+                                <li>
+                                    <a className="text-link color-accent"
+                                       href={"mailto:" + this.props.email}>{this.props.email}</a>
+                                </li>
                             </ul>
                             <button className="button-accent">Написать нам</button>
                         </div>
