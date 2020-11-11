@@ -52,6 +52,25 @@ function Header() {
     const currentPageIndex = 1;
     const currentPage = pages[currentPageIndex];
 
+    const links = [
+        {
+            title: 'Мероприятия',
+            anchor: '#events',
+        },
+        {
+            title: 'Обучение',
+            anchor: '#study',
+        },
+        {
+            title: 'Услуги',
+            anchor: '#services',
+        },
+        {
+            title: 'О нас',
+            anchor: '#team',
+        },
+    ];
+
     return (
         <header className="Header color-main">
             <div className="layer background">
@@ -67,18 +86,11 @@ function Header() {
                         <div className="drawer-content">
                             <NavBarMobile open={true} onToggle={toggleMenuHandler}/>
                             <List component="nav">
-                                <ListItemLink href="#events">
-                                    <ListItemText primary="Мероприятия" />
-                                </ListItemLink>
-                                <ListItemLink href="#study">
-                                    <ListItemText primary="Обучение" />
-                                </ListItemLink>
-                                <ListItemLink href="#services">
-                                    <ListItemText primary="Услуги" />
-                                </ListItemLink>
-                                <ListItemLink href="#team">
-                                    <ListItemText primary="О нас" />
-                                </ListItemLink>
+                                {links.map((l, i) => (
+                                    <ListItemLink key={i} href={l.anchor} onClick={() => toggleMenuHandler(false)}>
+                                        <ListItemText primary={l.title}/>
+                                    </ListItemLink>
+                                ))}
                             </List>
                         </div>
                     </Drawer>
