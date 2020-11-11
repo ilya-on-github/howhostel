@@ -6,7 +6,7 @@ import {Phone} from "../../models/phone.model";
 class Contacts extends Component<{ phones: Phone[], email: string }> {
     render() {
         return (
-            <div className="Contacts" style={{backgroundImage: "url(" + background + ")"}}>
+            <section id="contacts" className="Contacts" style={{backgroundImage: "url(" + background + ")"}}>
                 <div className="card">
                     <div className="layer">
                         <div className=" background background-main-inverted"/>
@@ -32,7 +32,7 @@ class Contacts extends Component<{ phones: Phone[], email: string }> {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 }

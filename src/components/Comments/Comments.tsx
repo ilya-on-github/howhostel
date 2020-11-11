@@ -14,7 +14,7 @@ class Comments extends Component<{ comments: Comment[] }> {
         const comments = this.props.comments;
 
         return (
-            <div className="Comments">
+            <section id="comments" className="Comments">
                 <Swiper tag="div" wrapperTag="ul"
                         virtual
                         allowTouchMove
@@ -33,7 +33,7 @@ class Comments extends Component<{ comments: Comment[] }> {
                         );
                     })}
                 </Swiper>
-            </div>
+            </section>
         );
     }
 }

@@ -34,14 +34,7 @@
     justify-content: space-between;
 
     .nav-bar {
-
-      display: flex;
-      align-items: center;
-      padding: 1rem;
-
-      ul {
-        display: none;
-      }
+      padding: 0.25rem;
     }
 
     .pages {
@@ -90,6 +83,13 @@
         margin: 1.25rem 0;
       }
     }
+  }
+}
+
+.drawer-content-wrapper {
+  width: 100%;
+
+  .drawer-content {
   }
 }
 

@@ -8,7 +8,7 @@ class StudyList extends Component<{ items: Study[] }> {
         const items = this.props.items;
 
         return (
-            <section className="StudyList background-main-inverted">
+            <section id="study" className="StudyList background-main-inverted">
                 <h1 className="headline">Обучение</h1>
                 <ul>{items.map(
                     (s, i) => {

@@ -8,7 +8,7 @@ class ServiceList extends Component<{ items: Service[] }> {
         const items = this.props.items;
 
         return (
-            <section className="ServiceList">
+            <section id="services" className="ServiceList">
                 <h1 className="headline">Услуги</h1>
                 <ul>{items.map(
                     (s, i) => {

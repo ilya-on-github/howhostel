@@ -10,7 +10,7 @@ SwiperCore.use([Pagination, Virtual]);
 
 const Team = (props: { members: TeamMember[] }) => {
     return (
-        <section className="Team">
+        <section id="team" className="Team">
             <h1>Команда</h1>
             <Swiper tag="section" wrapperTag="ul"
                     virtual

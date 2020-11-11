@@ -8,7 +8,7 @@ class EventList extends Component<{ events: Event[] }> {
         const events = this.props.events;
 
         return (
-            <section className="EventList">
+            <section id="events" className="EventList">
                 <h1>Мероприятия</h1>
                 <ul>{events.map(
                     (e, i) => {
