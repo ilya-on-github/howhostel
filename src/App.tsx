@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import './App.scss';
 
 import {Event} from './models/event.model';
-import {Study} from "./models/study.model";
+import {Course} from "./models/course.model";
 import {Service} from "./models/service.model";
 import {TeamMember} from "./models/team-member.model";
 import {Comment} from "./models/comment.model";
 import {Phone} from "./models/phone.model";
 
 import EventList from "./components/events/EventList/EventList";
-import StudyList from "./components/study/StudyList/StudyList";
+import CourseList from "./components/study/CourseList/CourseList";
 import ServiceList from "./components/services/ServiceList/ServiceList";
 import Header from "./components/Header/Header";
 import Team from "./components/Team/Team";
@@ -48,8 +48,8 @@ interface State {
     services: {
         items: Service[],
     },
-    study: {
-        items: Study[],
+    courses: {
+        items: Course[],
     },
     team: {
         members: TeamMember[],
@@ -135,7 +135,7 @@ const App = () => {
         feedbackForm: {
             open: false,
         },
-        study: {
+        courses: {
             items: [
                 {
                     title: '21 шаг к открытию успешного отеля',
@@ -216,7 +216,7 @@ const App = () => {
 
     const [state, setState] = useState(initialState);
 
-    const toggleActionForm = (open: boolean) => {
+    const toggleFeedbackForm = (open: boolean) => {
         setState({
             ...state,
             feedbackForm: {
@@ -228,14 +228,14 @@ const App = () => {
 
     return (
         <div className="App">
-            <Header onAction={() => toggleActionForm(true)}/>
+            <Header onAction={() => toggleFeedbackForm(true)}/>
             <EventList events={state.events.items}/>
-            <StudyList items={state.study.items}/>
-            <ServiceList items={state.services.items}/>
+            <CourseList courses={state.courses.items} onOrder={(course) => toggleFeedbackForm(true)}/>
+            <ServiceList items={state.services.items} onOrder={(service) => toggleFeedbackForm(true)}/>
             <Team members={state.team.members}/>
             <Comments comments={state.comments.items}/>
             <Contacts phones={state.contacts.phones} email={state.contacts.email}/>
-            <FeedbackForm open={state.feedbackForm.open} onToggle={(open) => toggleActionForm(open)}/>
+            <FeedbackForm open={state.feedbackForm.open} onToggle={(open) => toggleFeedbackForm(open)}/>
         </div>
     );
 }

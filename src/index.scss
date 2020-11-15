@@ -175,6 +175,12 @@ button {
   color: $colorMainInverted;
 }
 
+.button-link {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 // external components customization
 // swiper
 .swiper-pagination {
