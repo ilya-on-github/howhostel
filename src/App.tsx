@@ -234,7 +234,8 @@ const App = () => {
             <ServiceList items={state.services.items} onOrder={(service) => toggleFeedbackForm(true)}/>
             <Team members={state.team.members}/>
             <Comments comments={state.comments.items}/>
-            <Contacts phones={state.contacts.phones} email={state.contacts.email}/>
+            <Contacts phones={state.contacts.phones} email={state.contacts.email}
+                      onContact={() => toggleFeedbackForm(true)}/>
             <FeedbackForm open={state.feedbackForm.open} onToggle={(open) => toggleFeedbackForm(open)}/>
         </div>
     );
