@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import './App.scss';
 
 import {Event} from './models/event.model';
@@ -15,6 +15,7 @@ import Header from "./components/Header/Header";
 import Team from "./components/Team/Team";
 import Comments from "./components/Comments/Comments";
 import Contacts from "./components/Contacts/Contacts";
+import FeedbackForm from "./components/FeedbackForm/FeedbackForm";
 
 import breakfasts from './assets/images/breakfasts.png';
 import conferences from './assets/images/conferences.png';
@@ -28,9 +29,10 @@ import auditory from './assets/images/auditory.png';
 import team1 from './assets/images/team/burtseva.png';
 import team2 from './assets/images/team/levchenko.png';
 
-class App extends Component<{}, {
+interface State {
     comments: {
         items: Comment[],
+        currentIndex: number,
     },
     contacts: {
         email: string,
@@ -39,6 +41,9 @@ class App extends Component<{}, {
     events: {
         items: Event[],
         currentIndex: number,
+    },
+    feedbackForm: {
+        open: boolean,
     },
     services: {
         items: Service[],
@@ -49,8 +54,10 @@ class App extends Component<{}, {
     team: {
         members: TeamMember[],
     },
-}> {
-    state = {
+}
+
+const App = () => {
+    const initialState: State = {
         comments: {
             items: [
                 {
@@ -92,7 +99,7 @@ class App extends Component<{}, {
                     title: 'PRO документы',
                     when: new Date(),
                     linkText: 'Инстаграм',
-                    linkUrl: 'https://www.instagram.com/valery.levchenko',
+                    linkUrl: 'https://instagram.com/how.hostel',
                     imageUrl: streams,
                 },
                 {
@@ -101,7 +108,7 @@ class App extends Component<{}, {
                     title: 'PRO документы',
                     when: new Date(),
                     linkText: 'Инстаграм',
-                    linkUrl: 'https://www.instagram.com/valery.levchenko',
+                    linkUrl: 'https://instagram.com/how.hostel',
                     imageUrl: lessons,
                 },
                 {
@@ -110,7 +117,7 @@ class App extends Component<{}, {
                     title: 'PRO документы',
                     when: new Date(),
                     linkText: 'Инстаграм',
-                    linkUrl: 'https://www.instagram.com/valery.levchenko',
+                    linkUrl: 'https://instagram.com/how.hostel',
                     imageUrl: conferences,
                 },
                 {
@@ -119,11 +126,14 @@ class App extends Component<{}, {
                     title: 'PRO документы',
                     when: new Date(),
                     linkText: 'Инстаграм',
-                    linkUrl: 'https://www.instagram.com/valery.levchenko',
+                    linkUrl: 'https://instagram.com/how.hostel',
                     imageUrl: breakfasts,
                 },
             ],
             currentIndex: 0
+        },
+        feedbackForm: {
+            open: false,
         },
         study: {
             items: [
@@ -204,21 +214,30 @@ class App extends Component<{}, {
         },
     };
 
-    render() {
-        const state = this.state;
+    const [state, setState] = useState(initialState);
 
-        return (
-            <div className="App">
-                <Header/>
-                <EventList events={state.events.items}/>
-                <StudyList items={state.study.items}/>
-                <ServiceList items={state.services.items}/>
-                <Team members={state.team.members}/>
-                <Comments comments={state.comments.items}/>
-                <Contacts phones={state.contacts.phones} email={state.contacts.email}/>
-            </div>
-        );
-    }
+    const toggleActionForm = (open: boolean) => {
+        setState({
+            ...state,
+            feedbackForm: {
+                ...state,
+                open: open
+            }
+        });
+    };
+
+    return (
+        <div className="App">
+            <Header onAction={() => toggleActionForm(true)}/>
+            <EventList events={state.events.items}/>
+            <StudyList items={state.study.items}/>
+            <ServiceList items={state.services.items}/>
+            <Team members={state.team.members}/>
+            <Comments comments={state.comments.items}/>
+            <Contacts phones={state.contacts.phones} email={state.contacts.email}/>
+            <FeedbackForm open={state.feedbackForm.open} onToggle={(open) => toggleActionForm(open)}/>
+        </div>
+    );
 }
 
 export default App;

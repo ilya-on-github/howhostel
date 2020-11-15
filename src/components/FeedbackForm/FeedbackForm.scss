@@ -1,0 +1,25 @@
+.FeedbackForm {
+  flex: 1 1 auto;
+  padding: 3rem 1rem 1.75rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .input {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .input + .input {
+      margin-top: 1.5rem;
+    }
+  }
+}

@@ -1,14 +1,13 @@
-
 import React from "react";
 
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
 import ClearIcon from '@material-ui/icons/Clear';
 
-import './NavBarMobile.scss';
+import './SideDrawerHeader.scss';
 import Logo from "../Logo/Logo";
 
-function NavBarMobile(props: {
+function SideDrawerHeader(props: {
     open: boolean,
     onToggle: (open: boolean) => void,
 }) {
@@ -17,8 +16,8 @@ function NavBarMobile(props: {
     }
 
     return (
-        <div className="NavBarMobile">
-            <Logo />
+        <div className="SideDrawerHeader">
+            <Logo/>
             <IconButton onClick={() => onToggleClick(!props.open)}>
                 {props.open ? <ClearIcon/> : <MenuIcon/>}
             </IconButton>
@@ -26,4 +25,4 @@ function NavBarMobile(props: {
     )
 }
 
-export default NavBarMobile;
+export default SideDrawerHeader;

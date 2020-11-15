@@ -10,13 +10,13 @@ import './Header.scss';
 
 import bed from '../../assets/images/bed.png';
 import doors from '../../assets/images/doors.png';
-import NavBarMobile from "../NavBarMobile/NavBarMobile";
+import SideDrawerHeader from "../SideDrawerHeader/SideDrawerHeader";
 
 function ListItemLink(props: ListItemProps<'a', { button?: true }>) {
     return <ListItem button component="a" {...props} />;
 }
 
-function Header() {
+function Header(props: { onAction: () => void }) {
     const [state, setState] = React.useState({open: false});
 
     const toggleMenuHandler = (open: boolean) => {
@@ -65,6 +65,10 @@ function Header() {
         },
     ];
 
+    const onActionClick = () => {
+        props.onAction();
+    };
+
     return (
         <header className="Header color-main">
             <div className="layer background">
@@ -73,12 +77,12 @@ function Header() {
             </div>
             <div className="layer content">
                 <Hidden smUp>
-                    <NavBarMobile open={false} onToggle={toggleMenuHandler}/>
+                    <SideDrawerHeader open={false} onToggle={toggleMenuHandler}/>
                     <Drawer anchor="right" classes={{
                         paper: 'drawer-content-wrapper'
                     }} open={state.open} onClose={toggleDrawerHandler(false)}>
                         <div className="drawer-content">
-                            <NavBarMobile open={true} onToggle={toggleMenuHandler}/>
+                            <SideDrawerHeader open={true} onToggle={toggleMenuHandler}/>
                             <List component="nav">
                                 {links.map((l, i) => (
                                     <ListItemLink key={i} href={l.anchor} onClick={() => toggleMenuHandler(false)}>
@@ -104,7 +108,7 @@ function Header() {
                     <div className="wrapper">
                         <h3 className="page-subtitle">{currentPage.subtitle}</h3>
                         <div className="page-description text-body">{currentPage.description}</div>
-                        <button className="page-action button-accent">Написать нам</button>
+                        <button className="page-action button-accent" onClick={onActionClick}>Написать нам</button>
                     </div>
                 </div>
             </div>
