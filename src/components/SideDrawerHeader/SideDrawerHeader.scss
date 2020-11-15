@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
 
-  .logo-link {
-    padding: 0.75rem;
+  > * {
+    flex: 0 0 auto;
   }
 }
