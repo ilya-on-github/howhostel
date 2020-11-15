@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import './ServiceList.scss';
 import {Service} from "../../../models/service.model";
 import ServiceCard from "../ServiceCard/ServiceCard";
