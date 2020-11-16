@@ -1,38 +1,41 @@
-.EventCard {
+.EventCard-root {
   padding: 1.25rem;
   background: white;
-}
 
-.EventCard {
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
-.event-info {
+.EventCard-info {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
   text-align: left;
 
-  .event-type {
+  .EventCard-type {
     flex: 0 1 auto;
   }
 
-  .event-paid {
+  .EventCard-paid {
     flex: 1 1 auto;
     margin-left: 1rem;
   }
 
-  .event-title {
-    flex: 0 0 100%;
+  .EventCard-title {
+    flex: 0 0 auto;
   }
 
-  .event-date {
-    flex: 0 0 100%;
+  .EventCard-date {
+    flex: 0 0 auto;
   }
 
-  .event-link {
-    flex: 0 0 100%;
+  .EventCard-description {
+    display: none;
+  }
+
+  .EventCard-link {
+    flex: 0 0 auto;
     margin: 1.5rem 0 1rem 0;
 
     a {
@@ -45,7 +48,7 @@
   }
 }
 
-.event-image {
+.EventCard-image {
   display: block;
   height: 14.5rem;
   background-size: cover;

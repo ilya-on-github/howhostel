@@ -1,11 +1,18 @@
-.ServiceList {
+.ServiceList-root {
 
 }
 
-// Default (mobile)
-.ServiceList {
-  li + li {
-    margin-top: 2.25rem;
+.ServiceList-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.ServiceList-item {
+  flex: 1 1 auto;
+
+  & + .ServiceList-item {
+    margin-top: 2rem;
   }
 }
 
@@ -23,4 +30,49 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+  .ServiceList-root {
+    .ServiceList-heading {
+      text-align: left;
+    }
+
+    .ServiceList-item {
+      flex: 0 0 100%;
+
+      &:nth-child(2n) {
+        .ServiceCard-image {
+          order: 2;
+        }
+
+        .ServiceCard-content {
+          order: 1;
+        }
+      }
+
+      & + .ServiceList-item {
+        margin-top: 5rem;
+      }
+
+      .ServiceCard-root {
+        width: 100%;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .ServiceCard-image {
+          flex: 0 0 50%;
+          height: 18.5rem;
+        }
+
+        .ServiceCard-content {
+          flex: 0 0 calc(50% - 2rem);
+          padding: 0;
+
+          .ServiceCard-title {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
 }

@@ -6,12 +6,12 @@ const ServiceCard = (props: { service: Service, onOrder: () => void }) => {
     const service = props.service;
 
     return (
-        <div className="ServiceCard background-main-inverted">
-            <div className="service-image" style={{backgroundImage: "url(" + service.imageUrl + ")"}}/>
-            <div className="service-content">
-                <h2 className="service-title">{service.title}</h2>
-                <p className="service-description text-body">{service.description}</p>
-                <button className="service-link button-link text-link color-accent"
+        <div className="ServiceCard-root background-main-inverted">
+            <div className="ServiceCard-image" style={{backgroundImage: "url(" + service.imageUrl + ")"}}/>
+            <div className="ServiceCard-content">
+                <h2 className="ServiceCard-title">{service.title}</h2>
+                <p className="ServiceCard-description text-body">{service.description}</p>
+                <button className="ServiceCard-link button-link text-link color-accent"
                         onClick={() => props.onOrder()}>Заказать
                 </button>
             </div>

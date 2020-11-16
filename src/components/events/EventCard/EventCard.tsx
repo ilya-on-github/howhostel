@@ -11,22 +11,25 @@ import iconArrowRight from '../../../assets/icons/arrow-right.svg'
 const EventCard = (props: { event: Event }) => {
     const event = props.event;
     return (
-        <div className="EventCard">
-            <div className="event-info">
-                <div className="event-type text-caption">{event.type}</div>
-                {event.isFree
-                    ? <div className="event-paid text-caption color-light">Бесплатно</div>
-                    : ''}
-                <h4 className="event-title">{event.title}</h4>
-                <div className="event-date text-caption color-light">
+        <div className="EventCard-root">
+            <div className="EventCard-info">
+                <div className="EventCard-tags">
+                    <span className="EventCard-type text-caption">{event.type}</span>
+                    {event.isFree
+                        ? <span className="EventCard-paid text-caption color-light">Бесплатно</span>
+                        : ''}
+                </div>
+                <h4 className="EventCard-title">{event.title}</h4>
+                <div className="EventCard-date text-caption color-light">
                     <Moment locale="ru" date={event.when} format="lll"/>
                 </div>
-                <a className="event-link text-link color-accent" href={event.linkUrl}>
+                <p className="EventCard-description">{event.description}</p>
+                <a className="EventCard-link text-link color-accent" href={event.linkUrl}>
                     <span>{event.linkText}</span>
                     <img className="icon" src={iconArrowRight} alt="icon"/>
                 </a>
             </div>
-            <div className="event-image" style={{backgroundImage: "url(" + event.imageUrl + ")"}}/>
+            <div className="EventCard-image" style={{backgroundImage: "url(" + event.imageUrl + ")"}}/>
         </div>
     );
 }

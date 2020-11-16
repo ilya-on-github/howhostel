@@ -1,19 +1,21 @@
-.CourseList {
-}
-
-// Default (mobile)
-.CourseList {
-
+.CourseList-root {
   padding: 0 0 2.5rem 0;
 
-  .headline {
+  .CourseList-heading {
     text-align: left;
     padding: 0 1rem;
   }
+}
 
-  li + li {
-    margin-top: 1.5rem;
-  }
+.CourseList-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.CourseList-item {
+  flex: 1 1 100%;
+  margin: 1rem 0;
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -30,4 +32,31 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+  $spaceBetween: 8rem;
+
+  .CourseList-root {
+    .CourseList-heading {
+      padding: 0;
+    }
+
+    .CourseList-item {
+      max-width: calc(50% - #{$spaceBetween / 2});
+      margin: 0;
+
+      .CourseCard-root {
+        .CourseCard-content {
+          padding-left: 0;
+          padding-right: 0;
+
+          .CourseCard-title {
+            width: 75%;
+          }
+
+          button {
+            align-self: flex-start;
+          }
+        }
+      }
+    }
+  }
 }

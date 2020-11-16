@@ -14,16 +14,16 @@ const CourseCard = (props: { course: Course, index: number, onOrder: () => void 
     }
 
     return (
-        <div className="CourseCard background-main-inverted">
+        <div className="CourseCard-root background-main-inverted">
             <div className="layer background">
                 <div className={titleHighlightClasses.join(' ')}/>
                 <div className="title-highlight-cut"/>
             </div>
             <div className="layer content">
-                <div className="content-wrapper">
-                    <div className="study-type caption color-light">{course.type}</div>
-                    <h2 className="course-title">{course.title}</h2>
-                    <div className="study-subtitle text-subtitle">
+                <div className="CourseCard-content">
+                    <div className="CourseCard-type caption color-light">{course.type}</div>
+                    <h2 className="CourseCard-title">{course.title}</h2>
+                    <div className="CourseCard-subtitle text-subtitle">
                         {course.subtitle.map((t, i) => {
                             return (
                                 <span key={i}
@@ -31,7 +31,7 @@ const CourseCard = (props: { course: Course, index: number, onOrder: () => void 
                             );
                         })}
                     </div>
-                    <p className="course-description text-body">{course.description}</p>
+                    <p className="CourseCard-description text-body">{course.description}</p>
                     <button onClick={() => props.onOrder()}>Написать</button>
                 </div>
             </div>
