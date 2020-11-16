@@ -1,6 +1,5 @@
 import React from "react";
 
-import Drawer from '@material-ui/core/Drawer';
 import List from "@material-ui/core/List";
 import ListItem, {ListItemProps} from "@material-ui/core/ListItem";
 import ListItemText from '@material-ui/core/ListItemText';
@@ -11,6 +10,7 @@ import './Header.scss';
 import bed from '../../assets/images/bed.png';
 import doors from '../../assets/images/doors.png';
 import SideDrawerHeader from "../SideDrawerHeader/SideDrawerHeader";
+import CustomDrawer from "../material/CustomDrawer";
 
 function ListItemLink(props: ListItemProps<'a', { button?: true }>) {
     return <ListItem button component="a" {...props} />;
@@ -78,9 +78,7 @@ function Header(props: { onAction: () => void }) {
             <div className="layer content">
                 <Hidden smUp>
                     <SideDrawerHeader open={false} onToggle={toggleMenuHandler}/>
-                    <Drawer anchor="right" classes={{
-                        paper: 'drawer-content-wrapper'
-                    }} open={state.open} onClose={toggleDrawerHandler(false)}>
+                    <CustomDrawer anchor="right" open={state.open} onClose={toggleDrawerHandler(false)}>
                         <div className="drawer-content">
                             <SideDrawerHeader open={true} onToggle={toggleMenuHandler}/>
                             <List component="nav">
@@ -91,7 +89,7 @@ function Header(props: { onAction: () => void }) {
                                 ))}
                             </List>
                         </div>
-                    </Drawer>
+                    </CustomDrawer>
                 </Hidden>
                 <div className="pages">
                     <div className="wrapper">
