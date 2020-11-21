@@ -30,6 +30,10 @@
 @media (min-width: 1200px) {
   $gridSpaceBetween: 1.5rem;
 
+  .EventList-heading {
+    text-align: left;
+  }
+
   .EventList-list {
     display: flex;
     flex-wrap: wrap;
