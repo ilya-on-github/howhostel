@@ -44,17 +44,15 @@
       margin: 0;
 
       .CourseCard-root {
-        .CourseCard-content {
-          padding-left: 0;
-          padding-right: 0;
+        padding-left: 0;
+        padding-right: 0;
 
-          .CourseCard-title {
-            width: 75%;
-          }
+        .CourseCard-title {
+          width: 75%;
+        }
 
-          button {
-            align-self: flex-start;
-          }
+        button {
+          align-self: flex-start;
         }
       }
     }

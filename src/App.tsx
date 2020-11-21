@@ -9,7 +9,7 @@ import {Comment} from "./models/comment.model";
 import {Phone} from "./models/phone.model";
 
 import EventList from "./components/events/EventList/EventList";
-import CourseList from "./components/study/CourseList/CourseList";
+import CourseList from "./components/courses/CourseList/CourseList";
 import ServiceList from "./components/services/ServiceList/ServiceList";
 import Header from "./components/Header/Header";
 import Team from "./components/Team/Team";
