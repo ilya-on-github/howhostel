@@ -34,6 +34,11 @@ import team4 from './assets/images/team/Rectangle_39.png';
 import team5 from './assets/images/team/Rectangle_102.png';
 import team6 from './assets/images/team/Rectangle_103.png';
 
+import contactsBackground1 from './assets/images/contacts/background_1.png';
+import contactsBackground2 from './assets/images/contacts/background_2.png';
+import contactsBackground3 from './assets/images/contacts/background_3.png';
+import contactsBackground4 from './assets/images/contacts/background_4.png';
+
 interface State {
     comments: {
         items: Comment[],
@@ -42,6 +47,7 @@ interface State {
     contacts: {
         email: string,
         phones: Phone[],
+        background: string,
     },
     events: {
         items: Event[],
@@ -61,7 +67,17 @@ interface State {
     },
 }
 
+const getRandomInt = (min: number, max: number) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+
+    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+}
+
 const App = () => {
+    const backgrounds = [contactsBackground1, contactsBackground2, contactsBackground3, contactsBackground4];
+    const background = backgrounds[getRandomInt(0, backgrounds.length)];
+
     const initialState: State = {
         comments: {
             items: [
@@ -95,6 +111,7 @@ const App = () => {
                     name: 'Анна'
                 },
             ],
+            background: background,
         },
         events: {
             items: [
@@ -263,7 +280,7 @@ const App = () => {
             <ServiceList items={state.services.items} onOrder={(service) => toggleFeedbackForm(true)}/>
             <Team members={state.team.members}/>
             <Comments comments={state.comments.items}/>
-            <Contacts phones={state.contacts.phones} email={state.contacts.email}
+            <Contacts phones={state.contacts.phones} email={state.contacts.email} background={state.contacts.background}
                       onContact={() => toggleFeedbackForm(true)}/>
             <FeedbackForm open={state.feedbackForm.open} onToggle={(open) => toggleFeedbackForm(open)}/>
         </div>

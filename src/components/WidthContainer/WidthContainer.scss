@@ -1,5 +1,5 @@
 .WidthContainer-root {
-  margin: 0 auto;
+  width: 100%;
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -17,7 +17,8 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .WidthContainer-root {
-    max-width: 1160px;
+    width: 1200px;
+    margin: 0 auto;
   }
 }
 
