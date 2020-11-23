@@ -1,16 +1,18 @@
 import React from "react";
 
+import './Header.scss';
+
 import List from "@material-ui/core/List";
 import ListItem, {ListItemProps} from "@material-ui/core/ListItem";
 import ListItemText from '@material-ui/core/ListItemText';
-import Hidden from '@material-ui/core/Hidden';
 
-import './Header.scss';
+import SideDrawerHeader from "../SideDrawerHeader/SideDrawerHeader";
+import CustomDrawer from "../material/CustomDrawer";
+import WidthContainer from "../WidthContainer/WidthContainer";
+import Logo from "../Logo/Logo";
 
 import bed from '../../assets/images/bed.png';
 import doors from '../../assets/images/doors.png';
-import SideDrawerHeader from "../SideDrawerHeader/SideDrawerHeader";
-import CustomDrawer from "../material/CustomDrawer";
 
 function ListItemLink(props: ListItemProps<'a', { button?: true }>) {
     return <ListItem button component="a" {...props} />;
@@ -39,7 +41,7 @@ function Header(props: { onAction: () => void }) {
         {
             title: 'Создай успешный отель или хостел',
             subtitle: 'Создаем и помогаем',
-            description: '10 лет опыта создания и управления малого гостиничного бизнеса',
+            description: '10 лет опыта создания и управления малым гостиничным бизнесом',
         },
     ];
 
@@ -76,21 +78,33 @@ function Header(props: { onAction: () => void }) {
                 <div style={{backgroundImage: "url(" + doors + ")"}}/>
             </div>
             <div className="layer content">
-                <Hidden smUp>
-                    <SideDrawerHeader open={false} onToggle={toggleMenuHandler}/>
-                    <CustomDrawer anchor="right" open={state.open} onClose={toggleDrawerHandler(false)}>
-                        <div className="drawer-content">
-                            <SideDrawerHeader open={true} onToggle={toggleMenuHandler}/>
-                            <List component="nav">
-                                {links.map((l, i) => (
-                                    <ListItemLink key={i} href={l.anchor} onClick={() => toggleMenuHandler(false)}>
-                                        <ListItemText primary={l.title}/>
-                                    </ListItemLink>
-                                ))}
-                            </List>
-                        </div>
-                    </CustomDrawer>
-                </Hidden>
+                <WidthContainer>
+                    <section className="menu-drawer">
+                        <SideDrawerHeader open={false} onToggle={toggleMenuHandler}/>
+                        <CustomDrawer anchor="right" open={state.open} onClose={toggleDrawerHandler(false)}>
+                            <div className="drawer-content">
+                                <SideDrawerHeader open={true} onToggle={toggleMenuHandler}/>
+                                <List component="nav">
+                                    {links.map((l, i) => (
+                                        <ListItemLink key={i} href={l.anchor} onClick={() => toggleMenuHandler(false)}>
+                                            <ListItemText primary={l.title}/>
+                                        </ListItemLink>
+                                    ))}
+                                </List>
+                            </div>
+                        </CustomDrawer>
+                    </section>
+                    <nav className="menu-nav">
+                        <li>
+                            <Logo/>
+                        </li>
+                        {links.map((l, i) => (
+                            <li>
+                                <a className="text-body" href={l.anchor}>{l.title}</a>
+                            </li>
+                        ))}
+                    </nav>
+                </WidthContainer>
                 <div className="pages">
                     <div className="wrapper">
                         {pages.length > 1
