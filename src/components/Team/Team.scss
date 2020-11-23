@@ -33,3 +33,58 @@
     }
   }
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .Team {
+    overflow: hidden;
+
+    .heading {
+      text-align: left;
+    }
+
+    .swiper-container {
+      overflow: visible;
+
+      .swiper-slide {
+        width: 17.5rem;
+        margin-right: 0.5rem;
+        opacity: 0.45;
+        transition: opacity 300ms, width 200ms;
+
+        .photo {
+          height: 27rem;
+        }
+
+        .info {
+          display: none;
+          transition: display 300ms;
+        }
+
+        &.swiper-slide-active {
+          width: 36rem;
+          opacity: 1;
+
+          .info {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .WidthContainer-root {
+    max-width: 1160px;
+  }
+}

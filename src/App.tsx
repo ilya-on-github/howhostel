@@ -26,8 +26,13 @@ import files from './assets/images/files.png';
 import keyboard from './assets/images/keyboard.png';
 import photo from './assets/images/photo.png';
 import auditory from './assets/images/auditory.png';
+
 import team1 from './assets/images/team/burtseva.png';
 import team2 from './assets/images/team/levchenko.png';
+import team3 from './assets/images/team/Rectangle_36.png';
+import team4 from './assets/images/team/Rectangle_39.png';
+import team5 from './assets/images/team/Rectangle_102.png';
+import team6 from './assets/images/team/Rectangle_103.png';
 
 interface State {
     comments: {
@@ -206,6 +211,30 @@ const App = () => {
                 },
                 {
                     imageUrl: team2,
+                    name: 'Валерия Левченко',
+                    role: 'Эксперт',
+                    description: 'Хочу кофе',
+                },
+                {
+                    imageUrl: team3,
+                    name: 'Валерия Левченко',
+                    role: 'Эксперт',
+                    description: 'Хочу кофе',
+                },
+                {
+                    imageUrl: team4,
+                    name: 'Валерия Левченко',
+                    role: 'Эксперт',
+                    description: 'Хочу кофе',
+                },
+                {
+                    imageUrl: team5,
+                    name: 'Валерия Левченко',
+                    role: 'Эксперт',
+                    description: 'Хочу кофе',
+                },
+                {
+                    imageUrl: team6,
                     name: 'Валерия Левченко',
                     role: 'Эксперт',
                     description: 'Хочу кофе',
