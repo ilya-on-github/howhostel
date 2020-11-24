@@ -46,18 +46,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.title-highlight {
-  position: absolute;
-}
-
-.title-highlight-cut {
-  position: absolute;
-  background: white;
-
-  height: 3rem;
-  width: 3rem;
-  transform: rotate(20deg);
-  left: calc(95% - 1rem);
-  top: 4rem;
-}

@@ -1,16 +1,17 @@
 .EventList-root {
   background: #F5F6F7;
+  padding: 0 0 2.5rem 0;
 }
 
 
-// Default (mobile)
-.EventList-root {
-  padding: 0 1rem 2.5rem 1rem;
-}
+.EventList-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-.EventList-item {
-  & + .EventList-item {
-    margin-top: 1.5rem;
+  .EventList-item {
+    flex: 0 0 100%;
+    margin: 0.75rem 0;
   }
 }
 
@@ -20,6 +21,15 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+  $gridSpaceBetween: 1rem;
+
+  .EventList-list {
+    .EventList-item {
+      flex: 0 0 calc((100% - #{$gridSpaceBetween}) / 2);
+
+      margin: $gridSpaceBetween/2 0;
+    }
+  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -35,14 +45,10 @@
   }
 
   .EventList-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
     .EventList-item {
       flex: 0 0 calc((100% - #{2 * $gridSpaceBetween}) / 3);
 
-      margin: 0;
+      margin: $gridSpaceBetween/2 0;
 
       .EventCard-root {
         padding: $gridSpaceBetween;
@@ -50,7 +56,6 @@
 
       &:nth-child(4n+4) {
         flex: 0 0 100%;
-        margin: $gridSpaceBetween 0;
 
         .EventCard-root {
           flex-direction: row;

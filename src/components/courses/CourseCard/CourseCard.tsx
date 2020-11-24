@@ -4,14 +4,6 @@ import './CourseCard.scss';
 
 const CourseCard = (props: { course: Course, index: number, onOrder: () => void }) => {
     const course = props.course;
-    const index = props.index;
-
-    let titleHighlightClasses = ['title-highlight'];
-    if (index % 2 === 0) {
-        titleHighlightClasses.push('background-accent');
-    } else {
-        titleHighlightClasses.push('background-main');
-    }
 
     return (
         <div className="CourseCard-root background-main-inverted">

@@ -1,10 +1,9 @@
 .CourseList-root {
   padding: 0 0 2.5rem 0;
+}
 
-  .CourseList-heading {
-    text-align: left;
-    padding: 0 1rem;
-  }
+.CourseList-heading {
+  text-align: left;
 }
 
 .CourseList-list {
@@ -24,15 +23,7 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  $spaceBetween: 8rem;
+  $spaceBetween: 4rem;
 
   .CourseList-root {
     .CourseList-heading {
@@ -50,11 +41,26 @@
         .CourseCard-title {
           width: 75%;
         }
-
-        button {
-          align-self: flex-start;
-        }
       }
+    }
+
+    button {
+      align-self: flex-start;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  $spaceBetween: 8rem;
+
+  .CourseList-root {
+    .CourseList-item {
+      max-width: calc(50% - #{$spaceBetween / 2});
     }
   }
 }

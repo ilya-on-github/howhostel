@@ -6,6 +6,11 @@
   justify-content: stretch;
   position: relative;
 
+  .WidthContainer-root {
+    padding: 0;
+    width: 100%;
+  }
+
   .layer {
     position: absolute;
     left: 0;
@@ -159,6 +164,11 @@
     .page-title {
       font-size: 4rem;
       width: 40rem;
+    }
+
+    .WidthContainer-root {
+      padding: 0;
+      width: 1200px;
     }
   }
 }

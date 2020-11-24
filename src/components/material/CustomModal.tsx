@@ -9,15 +9,19 @@ import IconButton from "@material-ui/core/IconButton";
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         backdrop: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
         },
         paper: {
             width: '36rem',
+            maxWidth: '100%',
             backgroundColor: theme.palette.background.paper,
             border: 'none',
             boxShadow: theme.shadows[5],
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            maxHeight: '100%',
+            overflowY: 'auto',
         },
         header: {
             textAlign: 'right',

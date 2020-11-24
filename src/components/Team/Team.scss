@@ -48,7 +48,6 @@
     }
 
     .swiper-container {
-      overflow: visible;
 
       .swiper-slide {
         width: 17.5rem;
@@ -84,7 +83,9 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .WidthContainer-root {
-    max-width: 1160px;
+  .Team {
+    .swiper-container {
+      overflow: visible;
+    }
   }
 }
