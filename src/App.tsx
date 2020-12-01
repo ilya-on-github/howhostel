@@ -38,6 +38,7 @@ import contactsBackground1 from './assets/images/contacts/background_1.png';
 import contactsBackground2 from './assets/images/contacts/background_2.png';
 import contactsBackground3 from './assets/images/contacts/background_3.png';
 import contactsBackground4 from './assets/images/contacts/background_4.png';
+import Coaching from "./components/courses/details/Coaching";
 
 interface State {
     comments: {
@@ -160,32 +161,38 @@ const App = () => {
         courses: {
             items: [
                 {
-                    title: '21 шаг к открытию успешного отеля',
-                    description: 'Задача организации, в особенности же начало повседневной работы по формированию позиции обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации.',
+                    type: 'Марафон',
+                    title: 'Проект "Бизнес-отель"',
                     subtitle: [
                         {
                             text: 'Первый в России',
-                            isHighlighted: true,
                         },
                         {
                             text: 'онлайн марафон',
+                            isHighlighted: true,
                         }
                     ],
-                    type: 'Марафон',
+                    description: 'Твой личный способ обучения в формате марафона. Каждый день новая информация, ' +
+                        'интересные кейсы, домашние задания и качественная обратная связь. Если ты хочешь открыть ' +
+                        'средство размещения или уже столкнулся с первыми "А как это работает?"',
                 },
                 {
-                    title: 'Профессиональная переподготовка',
-                    description: 'Твой шанс получить диплом о профпереподготовке профильного образования в одном из лучшиз ВУЗов страны. Ты научишься: кругу (специалистов) участие в формировании соответствующий условий активизации.',
+                    type: 'Курс',
+                    title: 'Курс "Dream Team"',
                     subtitle: [
                         {
-                            text: 'Cовместно c',
+                            text: 'Командный коучинг',
+                            isHighlighted: true,
                         },
                         {
-                            text: 'РЭА им. Плеханова',
-                            isHighlighted: true
+                            text: 'для отелей',
                         }
                     ],
-                    type: 'Курсы',
+                    description: 'Командный коучинг для отелей. Специальный авторский курс фасилитации команды для ' +
+                        'сферы hospitality. За 2 дня вы создадите свою команду с нуля, отработаете ролевые кейсы на ' +
+                        'примере отеля, повысите мотивацию и эффективность работы своих сотрудников.\n' +
+                        'Курс предназначен для собственников/управляющих средств размещения и их сотрудников. ',
+                    details: Coaching()
                 },
             ]
         },

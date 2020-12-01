@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import {Course} from "../../../models/course.model";
 import './CourseCard.scss';
+import CustomModal from "../../material/CustomModal";
 
 const CourseCard = (props: { course: Course, index: number, onOrder: () => void }) => {
     const course = props.course;
+    const [state, setState] = useState({showDetails: false});
 
     return (
         <div className="CourseCard-root background-main-inverted">
@@ -17,8 +19,17 @@ const CourseCard = (props: { course: Course, index: number, onOrder: () => void 
                     );
                 })}
             </div>
-            <p className="CourseCard-description text-body">{course.description}</p>
+            <div className="CourseCard-description">
+                <p className="text-body">{course.description}</p>
+                {course.details ? <button className="button-link color-accent"
+                                          onClick={() => setState({showDetails: true})}>Подробнее</button> : ''}
+            </div>
             <button onClick={() => props.onOrder()}>Написать</button>
+            {course.details ?
+                <CustomModal className="FeedbackForm-root FeedbackForm-modal" open={state.showDetails}
+                             onClose={() => setState({showDetails: false})}>
+                    {course.details}
+                </CustomModal> : ''}
         </div>
     );
 }

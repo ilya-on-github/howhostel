@@ -21,13 +21,15 @@ const useStyles = makeStyles((theme: Theme) =>
             left: '50%',
             transform: 'translate(-50%, -50%)',
             maxHeight: '100%',
-            overflowY: 'auto',
+            display: 'flex',
+            flexDirection: 'column',
         },
         header: {
             textAlign: 'right',
         },
         content: {
             padding: '0 4.5rem 2rem 4.5rem',
+            overflowY: 'auto',
         }
     }),
 );
