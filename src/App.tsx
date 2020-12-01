@@ -27,12 +27,9 @@ import keyboard from './assets/images/keyboard.png';
 import photo from './assets/images/photo.png';
 import auditory from './assets/images/auditory.png';
 
-import team1 from './assets/images/team/burtseva.png';
-import team2 from './assets/images/team/levchenko.png';
-import team3 from './assets/images/team/Rectangle_36.png';
-import team4 from './assets/images/team/Rectangle_39.png';
-import team5 from './assets/images/team/Rectangle_102.png';
-import team6 from './assets/images/team/Rectangle_103.png';
+import burtseva from './assets/images/team/burtseva.png';
+import levchenko from './assets/images/team/levchenko.png';
+import slotnyuk from './assets/images/team/slotnyuk.jpeg';
 
 import contactsBackground1 from './assets/images/contacts/background_1.png';
 import contactsBackground2 from './assets/images/contacts/background_2.png';
@@ -116,14 +113,13 @@ const App = () => {
         },
         events: {
             items: [
-                //             Онлайн конференция "Правила безопасности отеля и хостела".
-                //                 Курс разделен на 2 дня :
-                // 1)Онлайн-Курс "Акт категорирования в отеле или хостеле" – 3990 рублей
-                // 2)Онлайн-Курс "Паспорт безопасности в отеле или хостеле" – 4990 рублей
+                // Онлайн конференция "Правила безопасности отеля и хостела".
+                // Курс разделен на 2 дня :
+                // 1) Онлайн-Курс "Акт категорирования в отеле или хостеле" – 3990 рублей
+                // 2) Онлайн-Курс "Паспорт безопасности в отеле или хостеле" – 4990 рублей
                 // Если количество человек, одновременно находящихся на объекте превышает 50 - то вам нужен Паспорт безопасности.
-                //     Если одновременно может находиться до 50 человек - то вам достаточно Акта категорирования.
-                //     Вы заполните свой паспорт безопасности или акт категорирования, получите инструкции по согласованию, необходимые формы и документы.
-
+                // Если одновременно может находиться до 50 человек - то вам достаточно Акта категорирования.
+                // Вы заполните свой паспорт безопасности или акт категорирования, получите инструкции по согласованию, необходимые формы и документы.
                 {
                     type: 'Онлайн конференция',
                     title: 'Правила безопасности отеля и хостела',
@@ -135,7 +131,6 @@ const App = () => {
                     linkUrl: 'https://instagram.com/how.hostel',
                     imageUrl: conferences, //streams,
                 },
-                // 4. Чек листы (24.11)
                 {
                     type: 'Прямой эфир',
                     isFree: true,
@@ -154,15 +149,6 @@ const App = () => {
                     linkUrl: 'https://instagram.com/how.hostel',
                     imageUrl: breakfasts,
                 },
-                // {
-                //     type: 'Бизнес-завтраки',
-                //     isFree: false,
-                //     title: 'PRO документы',
-                //     when: new Date(),
-                //     linkText: 'Инстаграм',
-                //     linkUrl: 'https://instagram.com/how.hostel',
-                //     imageUrl: breakfasts,
-                // },
             ],
             currentIndex: 0
         },
@@ -239,40 +225,22 @@ const App = () => {
         team: {
             members: [
                 {
-                    imageUrl: team1,
+                    imageUrl: burtseva,
                     name: 'Анна Бурцева',
                     role: 'Основатель',
                     description: 'Задача организации, в особенности же начало повседневной работы по формированию позиции обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации.',
                 },
                 {
-                    imageUrl: team2,
+                    imageUrl: levchenko,
                     name: 'Валерия Левченко',
                     role: 'Эксперт',
-                    description: 'Хочу кофе',
+                    description: 'Многократный победитель соревнований отельеров, член жюри, эксперт в отельном бизнесе.',
                 },
                 {
-                    imageUrl: team3,
-                    name: 'Валерия Левченко',
+                    imageUrl: slotnyuk,
+                    name: 'Екатерина Слотнюк',
                     role: 'Эксперт',
-                    description: 'Хочу кофе',
-                },
-                {
-                    imageUrl: team4,
-                    name: 'Валерия Левченко',
-                    role: 'Эксперт',
-                    description: 'Хочу кофе',
-                },
-                {
-                    imageUrl: team5,
-                    name: 'Валерия Левченко',
-                    role: 'Эксперт',
-                    description: 'Хочу кофе',
-                },
-                {
-                    imageUrl: team6,
-                    name: 'Валерия Левченко',
-                    role: 'Эксперт',
-                    description: 'Хочу кофе',
+                    description: 'Коуч ICF, психолог, командный тренер. Сопровождение лидеров и команд в сфере hospitality.',
                 },
             ],
         },
