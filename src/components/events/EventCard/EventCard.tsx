@@ -10,6 +10,15 @@ import iconArrowRight from '../../../assets/icons/arrow-right.svg'
 
 const EventCard = (props: { event: Event }) => {
     const event = props.event;
+
+    const renderDate = (date: Date, key?: number) => {
+        return (
+            <li>
+                <Moment locale="ru" date={date} format="lll" key={key}/>
+            </li>
+        );
+    };
+
     return (
         <div className="EventCard-root">
             <div className="EventCard-info">
@@ -20,9 +29,11 @@ const EventCard = (props: { event: Event }) => {
                         : ''}
                 </div>
                 <h4 className="EventCard-title">{event.title}</h4>
-                <div className="EventCard-date text-caption color-light">
-                    <Moment locale="ru" date={event.when} format="lll"/>
-                </div>
+                <ul className="EventCard-dates text-caption color-light">
+                    {Array.isArray(event.when) ?
+                        event.when.map(renderDate)
+                        : renderDate(event.when)}
+                </ul>
                 <p className="EventCard-description">{event.description}</p>
                 <a className="EventCard-link text-link color-accent" href={event.linkUrl}>
                     <span>{event.linkText}</span>

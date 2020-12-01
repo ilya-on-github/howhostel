@@ -20,7 +20,7 @@ import FeedbackForm from "./components/FeedbackForm/FeedbackForm";
 import breakfasts from './assets/images/breakfasts.png';
 import conferences from './assets/images/conferences.png';
 import lessons from './assets/images/lessons.png';
-import streams from './assets/images/streams.png';
+//import streams from './assets/images/streams.png';
 import lamp from './assets/images/lamp.png';
 import files from './assets/images/files.png';
 import keyboard from './assets/images/keyboard.png';
@@ -116,42 +116,53 @@ const App = () => {
         },
         events: {
             items: [
+                //             Онлайн конференция "Правила безопасности отеля и хостела".
+                //                 Курс разделен на 2 дня :
+                // 1)Онлайн-Курс "Акт категорирования в отеле или хостеле" – 3990 рублей
+                // 2)Онлайн-Курс "Паспорт безопасности в отеле или хостеле" – 4990 рублей
+                // Если количество человек, одновременно находящихся на объекте превышает 50 - то вам нужен Паспорт безопасности.
+                //     Если одновременно может находиться до 50 человек - то вам достаточно Акта категорирования.
+                //     Вы заполните свой паспорт безопасности или акт категорирования, получите инструкции по согласованию, необходимые формы и документы.
+
                 {
-                    type: 'Прямые эфиры',
-                    isFree: true,
-                    title: 'PRO документы',
-                    when: new Date(),
+                    type: 'Онлайн конференция',
+                    title: 'Правила безопасности отеля и хостела',
+                    when: [
+                        new Date('12/08/2020 14:00'),
+                        new Date('12/09/2020 14:00'),
+                    ],
                     linkText: 'Инстаграм',
                     linkUrl: 'https://instagram.com/how.hostel',
-                    imageUrl: streams,
+                    imageUrl: conferences, //streams,
                 },
+                // 4. Чек листы (24.11)
                 {
-                    type: 'Семинары',
+                    type: 'Прямой эфир',
                     isFree: true,
-                    title: 'PRO документы',
-                    when: new Date(),
+                    title: 'Загрузка в отеле',
+                    when: new Date('12/08/2020 12:00'),
                     linkText: 'Инстаграм',
                     linkUrl: 'https://instagram.com/how.hostel',
                     imageUrl: lessons,
                 },
                 {
-                    type: 'Конференции',
+                    type: 'Прямой эфир',
                     isFree: true,
-                    title: 'PRO документы',
-                    when: new Date(),
-                    linkText: 'Инстаграм',
-                    linkUrl: 'https://instagram.com/how.hostel',
-                    imageUrl: conferences,
-                },
-                {
-                    type: 'Бизнес-завтраки',
-                    isFree: false,
-                    title: 'PRO документы',
-                    when: new Date(),
+                    title: 'Чек-листы',
+                    when: new Date('12/15/2020 12:00'),
                     linkText: 'Инстаграм',
                     linkUrl: 'https://instagram.com/how.hostel',
                     imageUrl: breakfasts,
                 },
+                // {
+                //     type: 'Бизнес-завтраки',
+                //     isFree: false,
+                //     title: 'PRO документы',
+                //     when: new Date(),
+                //     linkText: 'Инстаграм',
+                //     linkUrl: 'https://instagram.com/how.hostel',
+                //     imageUrl: breakfasts,
+                // },
             ],
             currentIndex: 0
         },

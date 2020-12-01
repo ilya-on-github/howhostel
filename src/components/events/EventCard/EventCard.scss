@@ -5,9 +5,12 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: space-between;
 }
 
 .EventCard-info {
+  flex: 1 1 auto;
+
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -23,11 +26,26 @@
   }
 
   .EventCard-title {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
   }
 
-  .EventCard-date {
+  .EventCard-dates {
     flex: 0 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      margin: 0.2rem 0;
+
+      &:before {
+        content: ', '
+      }
+
+      &:first-child:before {
+        display: none;
+      }
+    }
   }
 
   .EventCard-description {

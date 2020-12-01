@@ -12,6 +12,12 @@
   .EventList-item {
     flex: 0 0 100%;
     margin: 0.75rem 0;
+
+    display: flex;
+
+    .EventCard-root {
+      flex-grow: 1;
+    }
   }
 }
 
