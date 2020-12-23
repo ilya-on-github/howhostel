@@ -8,6 +8,7 @@ import CustomInputLabel from "../material/CustomInputLabel";
 import CustomFormControlLabel from "../material/CustomFormControlLabel";
 import CustomDrawer from "../material/CustomDrawer";
 import CustomModal from "../material/CustomModal";
+import axios from "axios";
 
 interface FeedbackFormProps {
     open: boolean;
@@ -96,6 +97,21 @@ class FeedbackForm extends Component<FeedbackFormProps, FeedbackFormState> {
         }))
     }
 
+    handleSubmit = (event: any) => {
+        event.preventDefault();
+
+        const state = this.state;
+
+        axios.post(`https://howhostel-backend.azurewebsites.net/feedback`, {
+            name: state.name,
+            email: state.email,
+            phone: state.phone,
+            message: state.comment
+        }).then(res => {
+            console.log('sent');
+        });
+    }
+
     render() {
         console.log(this.state);
 
@@ -113,7 +129,7 @@ class FeedbackForm extends Component<FeedbackFormProps, FeedbackFormState> {
         }
 
         const form = (
-            <form className="form" autoComplete="off">
+            <form className="form" autoComplete="off" onSubmit={this.handleSubmit}>
                 <div className="inputs">
                     <div className="input">
                         <CustomInputLabel htmlFor="name" required>Имя</CustomInputLabel>
