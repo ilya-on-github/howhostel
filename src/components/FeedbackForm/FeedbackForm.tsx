@@ -16,6 +16,11 @@ interface FeedbackFormProps {
 
 interface FeedbackFormState {
     isMobile: boolean;
+    name: string;
+    email: string;
+    phone: string;
+    comment: string;
+    confirm: boolean;
 }
 
 class FeedbackForm extends Component<FeedbackFormProps, FeedbackFormState> {
@@ -28,7 +33,12 @@ class FeedbackForm extends Component<FeedbackFormProps, FeedbackFormState> {
         super(props);
 
         this.state = {
-            isMobile: FeedbackForm.isMobile()
+            isMobile: FeedbackForm.isMobile(),
+            name: '',
+            phone: '',
+            email: '',
+            comment: '',
+            confirm: true,
         };
     }
 
@@ -51,7 +61,44 @@ class FeedbackForm extends Component<FeedbackFormProps, FeedbackFormState> {
         }
     }
 
+    handleNameChange = (event: any) => {
+        this.setState(prevState => ({
+            ...prevState,
+            name: event.target.value
+        }));
+    }
+
+    handleEmailChange = (event: any) => {
+        this.setState(prevState => ({
+            ...prevState,
+            email: event.target.value
+        }));
+    }
+
+    handlePhoneChange = (event: any) => {
+        this.setState(prevState => ({
+            ...prevState,
+            phone: event.target.value
+        }));
+    }
+
+    handleCommentChange = (event: any) => {
+        this.setState(prevState => ({
+            ...prevState,
+            comment: event.target.value
+        }));
+    }
+
+    handleConfirmChange = () => {
+        this.setState(prevState => ({
+            ...prevState,
+            confirm: !prevState.confirm,
+        }))
+    }
+
     render() {
+        console.log(this.state);
+
         const drawerHeaderToggleHandler = (open: boolean) => {
             this.props.onToggle(open);
         };
@@ -70,24 +117,25 @@ class FeedbackForm extends Component<FeedbackFormProps, FeedbackFormState> {
                 <div className="inputs">
                     <div className="input">
                         <CustomInputLabel htmlFor="name" required>Имя</CustomInputLabel>
-                        <CustomInput id="name"/>
+                        <CustomInput id="name" value={this.state.name} onChange={this.handleNameChange}/>
                     </div>
                     <div className="input">
                         <CustomInputLabel htmlFor="phone" required>Телефон</CustomInputLabel>
-                        <CustomInput id="phone"/>
+                        <CustomInput id="phone" value={this.state.phone} onChange={this.handlePhoneChange}/>
                     </div>
                     <div className="input">
                         <CustomInputLabel htmlFor="email">Электронная почта</CustomInputLabel>
-                        <CustomInput id="email"/>
+                        <CustomInput id="email" value={this.state.email} onChange={this.handleEmailChange}/>
                     </div>
                     <div className="input">
                         <CustomInputLabel htmlFor="comment">Комментарий</CustomInputLabel>
-                        <CustomInput id="comment" multiline rows="4"/>
+                        <CustomInput id="comment" multiline rows="4" value={this.state.comment}
+                                     onChange={this.handleCommentChange}/>
                     </div>
                     <div className="input">
                         <CustomFormControlLabel
                             control={
-                                <CustomCheckbox/>
+                                <CustomCheckbox checked={this.state.confirm} onChange={this.handleConfirmChange}/>
                             }
                             label="Нажимая кнопку «Отправить», я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных в Согласии на обработку персональных данных"
                         />
