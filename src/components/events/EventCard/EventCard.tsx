@@ -13,8 +13,8 @@ const EventCard = (props: { event: Event }) => {
 
     const renderDate = (date: Date, key?: number) => {
         return (
-            <li>
-                <Moment locale="ru" date={date} format="lll" key={key}/>
+            <li key={key}>
+                <Moment locale="ru" date={date} format="lll"/>
             </li>
         );
     };
