@@ -99,7 +99,7 @@ function Header(props: { onAction: () => void }) {
                             <Logo/>
                         </li>
                         {links.map((l, i) => (
-                            <li>
+                            <li key={i}>
                                 <a className="text-body" href={l.anchor}>{l.title}</a>
                             </li>
                         ))}
